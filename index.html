@@ -30,44 +30,46 @@
     <form>
         <div><h3>Title:</h3></div>
         <label for="title"> </label>
-        <input type="text" id="title" name="name" required
-                maxlength="100" size="30">
+        <input type="text" id="title"required
+                maxlength="100" size="50">
 
         <div></div>
         <div><h3>Author:</h3></div>
         <label for="author"></label>
-        <input type="text" id="author" name="name" required
-               maxlength="100" size="30">
+        <input type="text" id="author"
+               maxlength="100" size="50">
 
         <div></div>
         <div><h3>ISBN#:</h3></div>
         <label for="isbn"></label>
-        <input type="text" id="isbn" name="name" required
-               maxlength="100" size="30">
+        <input type="text" id="isbn" required
+               maxlength="100" size="50">
 
         <div><p> </p></div>
         <div>
-            <input type="submit" value="Submit" class="btn">
+            <input type="submit" class="btn" id="BTN">
         </div>
 
     </form>
     <div>
-        <table class="collection" style="margin-top: 100px">
+        <table class="collection" style="margin-top: 100px" id="books">
             <tr>
                 <th><h4>Title</h4></th>
                 <th><h4>Author</h4></th>
                 <th><h4>ISBN</h4></th>
+                <th style="text-align: center"><h5>Remove</h5></th>
             </tr>
             <tr>
                 <td>Code Geass</td>
                 <td>Itoshi</td>
                 <td>#101010</td>
+                <td style="text-align: center"><h5><a href="#" class="btn" id="remove">X</a></h5></td>
             </tr>
 
         </table>
     </div>
 
 </body>
-
+<script src="app.js"></script>
 
 </html>

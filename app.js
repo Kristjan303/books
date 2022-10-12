@@ -1,34 +1,22 @@
-var click = document.getElementById('submit');
-click.addEventListener('click', addData);
+const subbtn = document.getElementById('BTN')
 
-var arr = new Array();
+subbtn.addEventListener("click", addbook)
 
-function addData(){
-    DeleteData();
-    getData();
-    var cv = document.getElementById('weight').value;
-    cv = parseInt(100) + parseInt(cv);
-    document.getElementById('weight').value = cv;
-    arr.push({
-        name:document.getElementById('name').value,
-        animal_class:document.getElementById('animal_class').value,
-        sub_class:document.getElementById('sub_class').value,
-        infra_class:document.getElementById('infra_class').value,
-        weight:document.getElementById('weight').value,
-        living_place:document.getElementById('living_place').value,
-        living_period:document.getElementById('living_period').value,
-        living_in_groups:document.getElementById('living_in_groups').value
-    });
+let table = document.getElementById('books')
 
-    localStorage.setItem("localData", JSON.stringify(arr));
-}
+function addbook(e) {
+    let row = table.insertRow(-1)
+    let cell1 = row.insertCell(0)
+    let cell2 = row.insertCell(1)
+    let cell3 = row.insertCell(2)
+    let cell4 = row.insertCell(3)
+    cell1.innerHTML = document.getElementById('title').value;
+    cell2.innerHTML = document.getElementById('author').value;
+    cell3.innerHTML = document.getElementById('isbn').value;
 
-function getData(){
-    var str = localStorage.getItem("localData");
-    if (str!= null)
-        arr = JSON.parse(str);
-}
-
-function DeleteData(){
-    localStorage.clear();
+    const a = document.createElement('a')
+    a.appendChild(document.createTextNode('X'))
+    a.className = 'blue-text text-darken-2 secondary-content'
+    a.setAttribute('href', '#')
+    cell4.appendChild(a)
 }
