@@ -32,4 +32,4 @@ function deleteBook(e){
 
         }
     }
-}s
+}
