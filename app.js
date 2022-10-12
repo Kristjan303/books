@@ -3,6 +3,10 @@ const subbtn = document.getElementById('BTN')
 subbtn.addEventListener("click", addbook)
 
 let table = document.getElementById('books')
+const taskList = document.querySelector('ul')
+const bookDelete = document.querySelector('table')
+
+bookDelete.addEventListener('click', deleteBook)
 
 function addbook(e) {
     let row = table.insertRow(-1)
@@ -20,3 +24,12 @@ function addbook(e) {
     a.setAttribute('href', '#')
     cell4.appendChild(a)
 }
+
+function deleteBook(e){
+    if(e.target.textContent == 'X'){
+        if(confirm('Are you sure to delete this task?')){
+            e.target.parentElement.parentNode.remove()
+
+        }
+    }
+}s
