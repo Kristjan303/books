@@ -35,10 +35,29 @@ function deleteBook(e){
     if(e.target.textContent == 'X'){
         if(confirm('Are you sure to delete this task?')){
             e.target.parentElement.parentNode.remove()
-
+            deleteTaskLS(e.target.parentElement.textContent.slice(0,-1))
+            localStorage.clear()
         }
     }
 }
+
+
+
+function deleteTaskLS(title, author, isbn) {
+    let books
+    if(localStorage.getItem('books') === null){
+        books = []
+    } else {
+        books = JSON.parse(localStorage.getItem('books'))
+    }
+    books.forEach((taskLS, taskIndex) => {
+        if(taskLS === books){
+            books.splice(taskIndex, 1)
+        }
+    })
+    localStorage.setItem('books', JSON.stringify(books))
+}
+
 
 function addTaskLS(title, author, isbn) {
     let books
