@@ -2,6 +2,7 @@ const subbtn = document.getElementById('BTN')
 const title = document.getElementById('title')
 const author = document.getElementById('author')
 const isbn = document.getElementById('isbn')
+document.addEventListener('DOMContentLoaded', getTasks)
 
 subbtn.addEventListener("click", addbook)
 
@@ -30,7 +31,27 @@ function addbook(e) {
     author.value = ""
     isbn.value = ""
 }
-
+function getTasks(){
+    let Book
+    if(localStorage.getItem('books') === null){
+        books = []
+    } else {
+        books = JSON.parse(localStorage.getItem('books'))
+    }
+    books.forEach((task) => {
+        const tr = document.createElement('th')
+        tr.appendChild(document.createTextNode(task))
+        tr.className = 'collection-item'
+        const a = document.createElement('a')
+        a.appendChild(document.createTextNode('X'))
+        a.className = 'blue-text text-darken-2 secondary-content'
+        a.setAttribute('href', '#')
+        tr.appendChild(a)
+        // add to list
+        const th = document.querySelector('ul')
+        th.appendChild(tr)
+    })
+}
 function deleteBook(e){
     if(e.target.textContent == 'X'){
         if(confirm('Are you sure to delete this task?')){
